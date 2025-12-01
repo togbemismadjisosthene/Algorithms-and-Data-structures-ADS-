@@ -1,1 +1,49 @@
+# first Method (o(n^2))
 
+Algorithm TwoSum_BruteForce(nums, target)
+    Input: 
+        nums – an array of integers
+        target – an integer
+    Output:
+        indices (i, j) such that nums[i] + nums[j] = target
+        or "No solution" if none exists
+
+    For i from 0 to length(nums) - 1 do
+        For j from i + 1 to length(nums) - 1 do
+            If nums[i] + nums[j] = target then
+                Return (i, j)
+            End If
+        End For
+    End For
+
+    Return "No solution"
+End Algorithm
+
+
+
+# Second Method( o(n)), the best.
+
+
+Algorithm TwoSum_HashTable(nums, target)
+    Input:
+        nums – an array of integers
+        target – an integer
+    Output:
+        indices (i, j) such that nums[i] + nums[j] = target
+        or "No solution" if none exists
+
+    Create an empty hash table H        // value → index
+
+    For i from 0 to length(nums) - 1 do
+        complement ← target - nums[i]
+
+        If complement exists in H then
+            j ← H[complement]
+            Return (j, i)
+        End If
+
+        H[nums[i]] ← i
+    End For
+
+    Return "No solution"
+End Algorithm
