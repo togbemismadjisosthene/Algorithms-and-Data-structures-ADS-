@@ -1,1 +1,23 @@
+def two_sum(nums, target):
+    """
+    Return the indices of the two numbers in 'nums' whose sum equals 'target'.
+    Optimized solution using a hash table. 
+    Time Complexity: O(n)
+    Space Complexity: O(n)
+    """
+    
+    hash_table = {}  # value -> index
+
+    for i, value in enumerate(nums):
+        complement = target - value
+
+        # Check if the complement is already seen
+        if complement in hash_table:
+            return [hash_table[complement], i]
+
+        # Store the current value with its index
+        hash_table[value] = i
+
+    # If no solution is found
+    return None
 
