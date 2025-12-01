@@ -1,1 +1,27 @@
+function twoSum(nums, target) {
+    /*
+    Return the indices of the two numbers in 'nums' whose sum equals 'target'.
+    Optimized solution using a hash table.
+    Time Complexity: O(n)
+    Space Complexity: O(n)
+    */
+
+    const hashTable = {}; // value -> index
+
+    for (let i = 0; i < nums.length; i++) {
+        const value = nums[i];
+        const complement = target - value;
+
+        // Check if the complement is already seen
+        if (hashTable.hasOwnProperty(complement)) {
+            return [hashTable[complement], i];
+        }
+
+        // Store the current value with its index
+        hashTable[value] = i;
+    }
+
+    // If no solution is found
+    return null;
+}
 
